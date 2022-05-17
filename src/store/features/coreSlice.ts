@@ -1,26 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-export interface CoreState {
-  loading: boolean;
-}
+import { CoreState } from '../../modules/core';
 
 const initialState: CoreState = {
-  loading: false,
+  layer: false,
+  auth: {
+    visible: false,
+    mode: 'LOGIN',
+  },
+  user: null,
+  popup: {
+    visible: false,
+    title: '',
+    message: '',
+  },
 };
 
 export const coreSlice = createSlice({
   name: 'core',
   initialState,
   reducers: {
-    showLoading: state => {
-      state.loading = true;
+    setLayer: (state, action) => {
+      state.layer = action.payload;
     },
-    removeLoading: state => {
-      state.loading = false;
+    setUser: (state, { payload: user }) => {
+      state.user = user;
     },
   },
 });
 
-export const { showLoading, removeLoading } = coreSlice.actions;
+export const { setLayer, setUser } = coreSlice.actions;
 
 export default coreSlice.reducer;

@@ -1,11 +1,12 @@
-export interface UserInfoState {
-  user_id: number;
+export interface CurrentUser {
+  id: string;
+  username: string;
   email: string;
-  phone_number: string;
-  display_name: string;
-  password: string;
-  avatar?: string;
-  birthday?: string;
-  role_id: number;
-  registration_time?: string;
+  phone: string;
+  role: string;
+  profile: {
+    id: string;
+    thumbnail: string | null;
+    display_name: string;
+  };
 }
