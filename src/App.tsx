@@ -1,17 +1,24 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Route, Routes } from 'react-router-dom';
+import ErrorBoundary from './components/error/ErrorBoundary';
+import Core from './containers/base/Core';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <p className='text-2x text-black'>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Helmet>
+        <title>IDL Management Toolkit</title>
+        <meta name='description' content='IDL Management Toolkit.' />
+      </Helmet>
+      <ErrorBoundary>
+        <Routes>
+          <Route index element={<RegisterPage />} />
+        </Routes>
+      </ErrorBoundary>
+      <Core />
+    </>
   );
 }
 

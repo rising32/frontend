@@ -1,18 +1,17 @@
 import React from 'react';
+import AuthTemplate from '../components/auth/AuthTemplate';
+import { Helmet } from 'react-helmet-async';
 
-function App() {
+function RegisterPage() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <p className='text-2x text-black'>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthTemplate>
+      <Helmet>
+        <title>Register - IDL Managment Toolki</title>
+        <meta name='robots' content='noindex' />
+      </Helmet>
+      <div>dfsdf</div>
+    </AuthTemplate>
   );
 }
 
-export default App;
+export default RegisterPage;
