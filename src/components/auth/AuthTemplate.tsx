@@ -14,7 +14,7 @@ function AuthTemplate({ children }: Props) {
           <PenSvg className='h-full w-full' />
         </div>
       </div>
-      <div>{children}</div>
+      <div className='w-2/3'>{children}</div>
     </div>
   );
 }
