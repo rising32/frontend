@@ -1,12 +1,12 @@
 import React from 'react';
 import MainTemplate from '../../components/main/MainTemplate';
 
-function MainTask() {
+function MainAccountPage() {
   return (
     <MainTemplate>
-      <h1>MainTask</h1>
+      <h1>MainAccountPage</h1>
     </MainTemplate>
   );
 }
 
-export default MainTask;
+export default MainAccountPage;

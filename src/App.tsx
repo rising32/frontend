@@ -4,9 +4,13 @@ import { Route, Routes } from 'react-router-dom';
 import ErrorBoundary from './components/error/ErrorBoundary';
 import MainLayout from './components/main/MainLayout';
 import Core from './containers/base/Core';
+import MainAccountPage from './pages/account/MainAccountPage';
+import MainDeliverablePage from './pages/deliverable/MainDeliverablePage';
 import LoginPage from './pages/LoginPage';
+import MainPriorityPage from './pages/priority/MainPriorityPage';
 import RegisterPage from './pages/RegisterPage';
-import MainTask from './pages/tasks/MainTask';
+import MainStatisticPage from './pages/statistic/MainStatisticPage';
+import MainTaskPage from './pages/task/MainTaskPage';
 
 function App() {
   return (
@@ -21,7 +25,11 @@ function App() {
           <Route path='login' element={<LoginPage />} />
           <Route index element={<LoginPage />} />
           <Route element={<MainLayout />}>
-            <Route path='tasks' element={<MainTask />} />
+            <Route path='tasks' element={<MainTaskPage />} />
+            <Route path='priorities' element={<MainPriorityPage />} />
+            <Route path='deliverables' element={<MainDeliverablePage />} />
+            <Route path='statistics' element={<MainStatisticPage />} />
+            <Route path='account' element={<MainAccountPage />} />
           </Route>
         </Routes>
       </ErrorBoundary>
