@@ -7,7 +7,7 @@ function LoginPage() {
   return (
     <AuthTemplate>
       <Helmet>
-        <title>Register - IDL Managment Toolkit</title>
+        <title>Login - IDL Managment Toolkit</title>
         <meta name='robots' content='noindex' />
       </Helmet>
       <LoginFormContainer />
