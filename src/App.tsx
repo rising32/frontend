@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Route, Routes } from 'react-router-dom';
+import AuthenticatedRoute from './AuthenticatedRoute';
 import ErrorBoundary from './components/error/ErrorBoundary';
 import MainLayout from './components/main/MainLayout';
 import Core from './containers/base/Core';
@@ -25,11 +26,46 @@ function App() {
           <Route path='login' element={<LoginPage />} />
           <Route index element={<LoginPage />} />
           <Route element={<MainLayout />}>
-            <Route path='tasks' element={<MainTaskPage />} />
-            <Route path='priorities' element={<MainPriorityPage />} />
-            <Route path='deliverables' element={<MainDeliverablePage />} />
-            <Route path='statistics' element={<MainStatisticPage />} />
-            <Route path='account' element={<MainAccountPage />} />
+            <Route
+              path='tasks'
+              element={
+                <AuthenticatedRoute>
+                  <MainTaskPage />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path='priorities'
+              element={
+                <AuthenticatedRoute>
+                  <MainPriorityPage />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path='deliverables'
+              element={
+                <AuthenticatedRoute>
+                  <MainDeliverablePage />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path='statistics'
+              element={
+                <AuthenticatedRoute>
+                  <MainStatisticPage />
+                </AuthenticatedRoute>
+              }
+            />
+            <Route
+              path='account'
+              element={
+                <AuthenticatedRoute>
+                  <MainAccountPage />
+                </AuthenticatedRoute>
+              }
+            />
           </Route>
         </Routes>
       </ErrorBoundary>

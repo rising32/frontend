@@ -13,6 +13,7 @@ module.exports = {
       'blue-link': '#A2D8FF',
       rouge: '#EC1C24',
       button: '#365B9D',
+      gray: '#6A798D',
     },
   },
   plugins: [require('tailwindcss'), require('autoprefixer')],

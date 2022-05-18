@@ -4,7 +4,7 @@ import BottomTab from './BottomTab';
 
 function MainLayout() {
   return (
-    <div className='w-screen h-screen flex flex-col'>
+    <div className='w-screen h-screen flex flex-col text-xs'>
       <Outlet />
       <BottomTab />
     </div>
