@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ErrorInfo } from 'react';
 import useNotFound from '../../lib/hooks/useNotFound';
 import NotFoundPage from '../../pages/NotFoundPage';
 import ChunkErrorScreen from './ChunkErrorScreen';
@@ -26,7 +26,7 @@ class ErrorBoundary extends React.Component<Props, State> {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: any) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     if (process.env.NODE_ENV === 'production') {
       console.log(error, errorInfo);
     }

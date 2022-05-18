@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { SubmitHandler } from 'react-hook-form';
 import RegisterForm, { RegisterFormType } from '../../components/auth/RegisterForm';
 import { validateEmail } from '../../lib/utils';
