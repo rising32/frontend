@@ -1,10 +1,11 @@
-import axios, { AxiosError } from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import RegisterForm, { RegisterFormType } from '../../components/auth/RegisterForm';
-import apiClient from '../../lib/api';
+import { sendRegister } from '../../lib/api';
+import useRequest from '../../lib/hooks/useRequest';
 import { validateEmail } from '../../lib/utils';
+import { ErrorResponse } from '../../lib/utils/errorTypes';
 import { useAppDispatch } from '../../store';
 import { setUser } from '../../store/features/coreSlice';
 
@@ -12,6 +13,9 @@ function RegisterFormContainer() {
   const [error, setError] = useState<null | string>(null);
   const navigate = useNavigate();
   const dipatch = useAppDispatch();
+
+  const [_sendRegister, , sendRegisterRes, sendRegisterError] = useRequest(sendRegister);
+
   const onSubmit: SubmitHandler<RegisterFormType> = data => {
     setError(null);
     const validation = {
@@ -33,33 +37,33 @@ function RegisterFormContainer() {
       },
     };
 
-    const error = validation.username(data.username) || validation.password(data.password) || validateEmail(data.email) || null;
+    const valiedError = validation.username(data.username) || validation.password(data.password) || validateEmail(data.email) || null;
 
-    if (error) {
-      setError(error);
+    if (valiedError) {
+      setError(valiedError);
       return;
     }
-    apiClient
-      .post('/v1/auth/register', {
-        email: data.email,
-        phone: data.phone,
-        username: data.username,
-        password: data.password,
-      })
-      .then(res => {
-        console.log(res);
-        dipatch(setUser(res.data));
-        navigate('/tasks');
-      })
-      .catch(err => {
-        if (axios.isAxiosError(err)) {
-          const errors = err as AxiosError;
-          console.log('error message: ', errors.message, errors.response?.data);
-        } else {
-          console.log('unexpected error: ', error);
-        }
-      });
+    const params = {
+      email: data.email,
+      phone: data.phone,
+      username: data.username,
+      password: data.password,
+    };
+    _sendRegister(params);
   };
+  useEffect(() => {
+    if (sendRegisterRes) {
+      console.log(sendRegisterRes);
+      dipatch(setUser(sendRegisterRes));
+      navigate('/tasks');
+    }
+  }, [sendRegisterRes]);
+  useEffect(() => {
+    if (sendRegisterError) {
+      const data = sendRegisterError?.response?.data as ErrorResponse;
+      setError(data.errorMessage);
+    }
+  }, [sendRegisterError]);
   return <RegisterForm onSubmit={onSubmit} error={error} />;
 }
 

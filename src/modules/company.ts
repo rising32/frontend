@@ -1,11 +1,11 @@
-import { CurrentUser } from './user';
+import { UserInfoState } from './user';
 
 export interface CompanyState {
   company_id: number;
   company_name: string;
 }
 export interface CompanyInfoState {
-  admin_info: CurrentUser | null;
+  admin_info: UserInfoState | null;
   client_count: number;
   company_id: number;
   company_name: string;

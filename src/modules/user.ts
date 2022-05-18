@@ -1,4 +1,4 @@
-export interface CurrentUser {
+export interface UserInfoState {
   id: string;
   display_name: string;
   email: string;

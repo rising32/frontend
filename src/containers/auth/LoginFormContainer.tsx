@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import LoginForm, { LoginFormType } from '../../components/auth/LoginForm';
+import { sendLogin } from '../../lib/api';
+import useRequest from '../../lib/hooks/useRequest';
 import { validateEmail } from '../../lib/utils';
+import { ErrorResponse } from '../../lib/utils/errorTypes';
+import { useAppDispatch } from '../../store';
+import { setUser } from '../../store/features/coreSlice';
 
 function LoginFormContainer() {
   const [error, setError] = useState<null | string>(null);
+
+  const navigate = useNavigate();
+  const dipatch = useAppDispatch();
+
+  const [_sendLogin, , sendLoginRes, sendLoginError] = useRequest(sendLogin);
+
   const onSubmit: SubmitHandler<LoginFormType> = data => {
     setError(null);
     const validation = {
-      name: (text: string) => {
-        if (text === '') {
-          return 'Name is empty!.';
-        }
-        if (text.length > 45) {
-          return 'Name length is max 45';
-        }
-      },
       password: (text: string) => {
         if (text === '') {
           return 'Password is empty!.';
@@ -33,8 +36,26 @@ function LoginFormContainer() {
       setError(error);
       return;
     }
-    console.log(data);
+    const params = {
+      email: data.email,
+      password: data.password,
+    };
+    _sendLogin(params);
   };
+
+  useEffect(() => {
+    if (sendLoginRes) {
+      console.log(sendLoginRes);
+      dipatch(setUser(sendLoginRes));
+      navigate('/tasks');
+    }
+  }, [sendLoginRes]);
+  useEffect(() => {
+    if (sendLoginError) {
+      const data = sendLoginError?.response?.data as ErrorResponse;
+      setError(data.errors ? data.errors[0] : data.errorMessage);
+    }
+  }, [sendLoginError]);
   return <LoginForm onSubmit={onSubmit} error={error} />;
 }
 
