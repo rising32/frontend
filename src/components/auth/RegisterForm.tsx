@@ -7,7 +7,7 @@ export type RegisterFormType = {
   email: string;
   phone: string;
   password: string;
-  name: string;
+  username: string;
 };
 
 type Props = {
@@ -21,7 +21,7 @@ function RegisterForm({ onSubmit, error }: Props) {
       email: '',
       phone: '',
       password: '',
-      name: '',
+      username: '',
     },
   });
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ function RegisterForm({ onSubmit, error }: Props) {
       <div className='font-bold text-center'>Create a New Account</div>
       <Controller
         control={control}
-        name='name'
+        name='username'
         rules={{ required: true }}
         render={({ field: { onChange, onBlur, name, value, ref } }) => (
           <IconInput fieldRef={ref} onBlur={onBlur} name={name} onChange={onChange} placeholder='Enter Name' value={value} />
