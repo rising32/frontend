@@ -1,18 +1,18 @@
 import React from 'react';
 import AuthTemplate from '../components/auth/AuthTemplate';
 import { Helmet } from 'react-helmet-async';
-import RegisterFormContainer from '../containers/auth/RegisterFormContainer';
+import LoginFormContainer from '../containers/auth/LoginFormContainer';
 
-function RegisterPage() {
+function LoginPage() {
   return (
     <AuthTemplate>
       <Helmet>
         <title>Register - IDL Managment Toolkit</title>
         <meta name='robots' content='noindex' />
       </Helmet>
-      <RegisterFormContainer />
+      <LoginFormContainer />
     </AuthTemplate>
   );
 }
 
-export default RegisterPage;
+export default LoginPage;

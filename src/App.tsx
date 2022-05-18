@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Route, Routes } from 'react-router-dom';
 import ErrorBoundary from './components/error/ErrorBoundary';
 import Core from './containers/base/Core';
+import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 
 function App() {
@@ -14,7 +15,9 @@ function App() {
       </Helmet>
       <ErrorBoundary>
         <Routes>
-          <Route index element={<RegisterPage />} />
+          <Route path='register' element={<RegisterPage />} />
+          <Route path='login' element={<LoginPage />} />
+          <Route index element={<LoginPage />} />
         </Routes>
       </ErrorBoundary>
       <Core />
