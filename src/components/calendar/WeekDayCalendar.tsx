@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { format, startOfWeek, addDays, isSameDay } from 'date-fns';
-import { LeftArrowSvg, RightArrowSvg } from '../../assets/svg';
 import { subDays } from 'date-fns/esm';
+import PageHeader from '../base/PageHeader';
+import { ArrowLeftSvg, ArrowRightSvg } from '../../assets/svg';
 
 interface Props {
   selectedDate: Date;
@@ -40,15 +41,15 @@ const WeekDayCalendar = ({ selectedDate, onSelectDate }: Props) => {
   };
 
   return (
-    <section className='w-full bg-white flex flex-row p-2 rounded-xl'>
+    <PageHeader>
       <div className='flex items-center justify-center' onClick={() => changeWeekHandle('prev')}>
-        <LeftArrowSvg className='w-4 h-4 stroke-button stroke-2' />
+        <ArrowLeftSvg className='w-4 h-4 stroke-button stroke-2' />
       </div>
       {getDates()}
       <div className='flex items-center justify-center' onClick={() => changeWeekHandle('next')}>
-        <RightArrowSvg className='w-4 h-4 stroke-button stroke-2' />
+        <ArrowRightSvg className='w-4 h-4 stroke-button stroke-2' />
       </div>
-    </section>
+    </PageHeader>
   );
 };
 

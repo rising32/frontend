@@ -6,7 +6,7 @@ import { getLocalDataString } from '../../lib/utils';
 import WeekDayCalendar from '../calendar/WeekDayCalendar';
 import IconInput from '../common/IconInput';
 import PlusIcon from '../common/PlusIcon';
-import RogueBorderView from '../common/RogueBorderView';
+import RoundedView from '../common/RoundedView';
 
 export type TaskFormType = {
   email: string;
@@ -38,7 +38,7 @@ function TaskForm() {
         <span>On time: 90%</span>
       </div>
 
-      <RogueBorderView>
+      <RoundedView className='border-2 border-rouge bg-gray'>
         <form onSubmit={handleSubmit(onSubmit)} className='text-white grid gap-4 mt-4'>
           <div className='font-bold text-center'>Task with your account</div>
           {/* <Controller
@@ -69,7 +69,7 @@ function TaskForm() {
             <PlusIcon className='flex items-center justify-end my-4' />
           </button>
         </form>
-      </RogueBorderView>
+      </RoundedView>
     </>
   );
 }

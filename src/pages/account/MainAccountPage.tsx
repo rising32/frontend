@@ -1,10 +1,11 @@
 import React from 'react';
 import MainTemplate from '../../components/main/MainTemplate';
+import AccountContainer from '../../containers/account/AccountContainer';
 
 function MainAccountPage() {
   return (
     <MainTemplate>
-      <h1>MainAccountPage</h1>
+      <AccountContainer />
     </MainTemplate>
   );
 }

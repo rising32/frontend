@@ -1,6 +1,6 @@
 import React from 'react';
 import { logoThumbnail } from '../../assets/images';
-import { PenSvg } from '../../assets/svg';
+import { HighlighterSvg } from '../../assets/svg';
 
 type Props = {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ function AuthTemplate({ children }: Props) {
       <div className='relative w-20 h-20'>
         <img src={logoThumbnail} alt='Logo' className='h-full w-full' />
         <div className='h-1/3 w-1/3 absolute top-0 -right-1/4'>
-          <PenSvg className='h-full w-full' />
+          <HighlighterSvg className='h-full w-full' />
         </div>
       </div>
       <div className='w-2/3'>{children}</div>

@@ -1,4 +1,4 @@
-import { CarSvg, FlightSvg, TrainSvg, BusSvg, MealSvg, HotelSvg, InvitationSvg, OtherSvg } from '../assets/svg';
+// import { CarSvg, FlightSvg, TrainSvg, BusSvg, MealSvg, HotelSvg, InvitationSvg, OtherSvg } from '../assets/svg';
 
 export interface DeliverableState {
   deliverable_id?: number | null;
@@ -38,45 +38,45 @@ export interface ExpenseKindState {
   >;
 }
 
-export const deliverablesExpenseKind: ExpenseKindState[] = [
-  {
-    value: 'car',
-    label: 'Car',
-    icon: CarSvg,
-  },
-  {
-    value: 'flight',
-    label: 'Flight',
-    icon: FlightSvg,
-  },
-  {
-    value: 'train',
-    label: 'Train',
-    icon: TrainSvg,
-  },
-  {
-    value: 'bus',
-    label: 'Bus',
-    icon: BusSvg,
-  },
-  {
-    value: 'meal',
-    label: 'Meal',
-    icon: MealSvg,
-  },
-  {
-    value: 'hotel',
-    label: 'Hotel',
-    icon: HotelSvg,
-  },
-  {
-    value: 'invitation',
-    label: 'Invitation',
-    icon: InvitationSvg,
-  },
-  {
-    value: 'other',
-    label: 'Other',
-    icon: OtherSvg,
-  },
-];
+// export const deliverablesExpenseKind: ExpenseKindState[] = [
+//   {
+//     value: 'car',
+//     label: 'Car',
+//     icon: CarSvg,
+//   },
+//   {
+//     value: 'flight',
+//     label: 'Flight',
+//     icon: FlightSvg,
+//   },
+//   {
+//     value: 'train',
+//     label: 'Train',
+//     icon: TrainSvg,
+//   },
+//   {
+//     value: 'bus',
+//     label: 'Bus',
+//     icon: BusSvg,
+//   },
+//   {
+//     value: 'meal',
+//     label: 'Meal',
+//     icon: MealSvg,
+//   },
+//   {
+//     value: 'hotel',
+//     label: 'Hotel',
+//     icon: HotelSvg,
+//   },
+//   {
+//     value: 'invitation',
+//     label: 'Invitation',
+//     icon: InvitationSvg,
+//   },
+//   {
+//     value: 'other',
+//     label: 'Other',
+//     icon: OtherSvg,
+//   },
+// ];

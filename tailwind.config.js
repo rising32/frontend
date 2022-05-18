@@ -8,7 +8,7 @@ module.exports = {
       black: '#000000',
       background: '#14477E',
       chrono: '#03E20C',
-      'light-gray': '#9C9898',
+      'light-gray': '#F2F2F2',
       'black-icon': '#111111',
       'blue-link': '#A2D8FF',
       rouge: '#EC1C24',
