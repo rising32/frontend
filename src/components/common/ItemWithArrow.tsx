@@ -14,7 +14,7 @@ interface Props {
 function ItemWithArrow({ children, className, Icon }: Props): JSX.Element {
   return (
     <div className={`bg-light-gray flex p-2 rounded-sm overflow-hidden items-center ${className}`}>
-      <Icon className='h-4 w-4' />
+      <Icon className='h-4 w-auto' />
       <div className='flex flex-1 truncate mx-2'>{children}</div>
       <ForwardSvg className='h-4 w-4' />
     </div>

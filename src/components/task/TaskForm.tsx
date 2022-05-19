@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { Controller, useForm, SubmitHandler } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { PlusSvg } from '../../assets/svg';
 import { getLocalDataString } from '../../lib/utils';
 import WeekDayCalendar from '../calendar/WeekDayCalendar';
-import IconInput from '../common/IconInput';
 import PlusIcon from '../common/PlusIcon';
 import RoundedView from '../common/RoundedView';
 
@@ -24,7 +21,6 @@ function TaskForm() {
       password: '',
     },
   });
-  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<TaskFormType> = data => {
     console.log(data);

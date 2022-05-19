@@ -57,7 +57,7 @@ function RegisterFormContainer() {
       dipatch(setUser(sendRegisterRes));
       navigate('/tasks');
     }
-  }, [sendRegisterRes]);
+  }, [sendRegisterRes, dipatch, navigate]);
   useEffect(() => {
     if (sendRegisterError) {
       const data = sendRegisterError?.response?.data as ErrorResponse;

@@ -49,7 +49,7 @@ function LoginFormContainer() {
       dipatch(setUser(sendLoginRes));
       navigate('/tasks');
     }
-  }, [sendLoginRes]);
+  }, [sendLoginRes, dipatch, navigate]);
   useEffect(() => {
     if (sendLoginError) {
       const data = sendLoginError?.response?.data as ErrorResponse;

@@ -8,11 +8,11 @@ interface Props {
 }
 function ErrorScreenTemplate({ image, message, buttonText, onButtonClick }: Props) {
   return (
-    <div className='flex w-full h-full items-center justify-center'>
+    <div className='flex flex-col m-auto h-screen items-center justify-center text-white'>
       <img src={image} alt='error' />
       <div className='message'>{message}</div>
       {buttonText && (
-        <div className='button-wrapper'>
+        <div className='flex items-center justify-center bg-rouge rounded-full py-2 px-6 mt-4'>
           <button onClick={onButtonClick}>{buttonText}</button>
         </div>
       )}
